@@ -27,7 +27,10 @@ describe("StoreCatalogFacade test", () => {
       id: "1",
       name: "Product 1",
       description: "Description 1",
-      salesPrice: 100,
+      price: 100,
+      stock: 1,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     });
 
     const result = await facade.find({ id: "1" });
@@ -35,7 +38,7 @@ describe("StoreCatalogFacade test", () => {
     expect(result.id).toBe("1");
     expect(result.name).toBe("Product 1");
     expect(result.description).toBe("Description 1");
-    expect(result.salesPrice).toBe(100);
+    expect(result.price).toBe(100);
   });
 
   it("should find all products", async () => {
@@ -44,13 +47,19 @@ describe("StoreCatalogFacade test", () => {
       id: "1",
       name: "Product 1",
       description: "Description 1",
-      salesPrice: 100,
+      price: 100,
+      stock: 1,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     });
     await ProductModel.create({
       id: "2",
       name: "Product 2",
       description: "Description 2",
-      salesPrice: 200,
+      price: 200,
+      stock: 2,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     });
 
     const result = await facade.findAll();
@@ -59,10 +68,10 @@ describe("StoreCatalogFacade test", () => {
     expect(result.products[0].id).toBe("1");
     expect(result.products[0].name).toBe("Product 1");
     expect(result.products[0].description).toBe("Description 1");
-    expect(result.products[0].salesPrice).toBe(100);
+    expect(result.products[0].price).toBe(100);
     expect(result.products[1].id).toBe("2");
     expect(result.products[1].name).toBe("Product 2");
     expect(result.products[1].description).toBe("Description 2");
-    expect(result.products[1].salesPrice).toBe(200);
+    expect(result.products[1].price).toBe(200);
   });
 });

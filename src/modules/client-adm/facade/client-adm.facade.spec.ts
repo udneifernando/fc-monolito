@@ -1,11 +1,10 @@
 import { Sequelize } from "sequelize-typescript"
-import { ClientModel } from "../repository/client.model"
+import ClientModel from "../repository/client.model"
 import ClientRepository from "../repository/client.repository"
 import AddClientUseCase from "../usecase/add-client/add-client.usecase"
 import ClientAdmFacade from "./client-adm.facade"
 import ClientAdmFacadeFactory from "../factory/client-adm.facade.factory"
 import Address from "../../@shared/domain/value-object/address"
-
 
 describe("Client Adm Facade test", () => {
 
